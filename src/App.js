@@ -3,11 +3,17 @@ function App() {
     <div className="App">
       {/* Start editing here */}
       <div className="w-full h-screen flex justify-center items-center">
-        <h1 className="font-bold text-5xl text-indigo-600">Hello Tailwind <span className="bg-gray-100 p-2 hover:bg-transparent cursor-wait">CSS</span></h1>
+        <h1 className="font-bold text-5xl text-indigo-600">
+          Hello Tailwind{" "}
+          <span className="bg-gray-100 p-2 hover:bg-transparent cursor-wait">
+            CSS
+          </span>
+        </h1>
       </div>
     </div>
   );
 }
 
+// TODO: Remove firebase from package.json if you are not using it.
 
 export default App;
