@@ -23,6 +23,4 @@ function App() {
   );
 }
 
-// TODO: Remove firebase from package.json if you are not using it.
-
 export default App;
