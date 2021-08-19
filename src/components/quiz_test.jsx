@@ -8,12 +8,9 @@ function TriangleQuiz() {
   const [displayButton, setDisplayButton] = useState(true);
   const [score, setScore] = useState(0);
   const [attemptedAnswers, setAttemptedAnswers] = useState(new Array(5));
-  const [questionId, setQuestionId] = useState(new Array(5));
-
-  const [state, setState] = useState({});
 
   function resetState(e) {
-    setState({});
+    // setState({});
     setScore(0);
     setDisplayButton(true);
     setPlaying(false);
@@ -24,21 +21,16 @@ function TriangleQuiz() {
       button.checked = false;
     });
 
-    for (let i = 0; i < questionId.length; i++) {
+    for (let i = 0; i < answers.length; i++) {
+      // answer used just becuase if we increase number of answers, we need to change this
       document.querySelector(
         `.question-menu:nth-child(${i + 1}`
       ).style.backgroundColor = "transparent";
     }
-
-    setQuestionId(new Array(5));
   }
 
   function getSizeOfAnswers() {
-    let size = 0;
-    for (let key in state) {
-      size++;
-    }
-    return size;
+    return attemptedAnswers.length;
   }
 
   function handleSubmit(e) {
@@ -72,19 +64,10 @@ function TriangleQuiz() {
   function handleChange(e) {
     const value = e.target.value;
     const index = Number.parseInt(e.target.className);
-    const name = e.target.name;
 
     let items = [...attemptedAnswers];
     items[index - 1] = value;
     setAttemptedAnswers(items);
-
-    let names = [...questionId];
-    names[index - 1] = name;
-    setQuestionId(names);
-
-    let currState = state;
-    currState[e.target.name] = value;
-    setState(currState);
   }
 
   return (
